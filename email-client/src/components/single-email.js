@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import './single-email.css';
 
 export function SingleEmail(props) {
-    //return <p>GOT IT TO RENDER</p>
     return (
         <div className="single-email">
             <div className="single-email-headers">
@@ -22,14 +21,9 @@ const mapStateToProps = (state, props) => {
   const folderId = props.match.params.folderId;
   const emailId = props.match.params.emailId;
   const email = state[folderId].emails[emailId];
-  console.log('EMAIL',email);
+
   return Object.assign({}, email, {folderId, emailId});
-  // return {
-  //   title: email.title,
-  //   from: email.from,
-  //   to: email.to
-  // };
+
 }
-//state[props.folderId].emails[props.emailId];
 
 export default connect(mapStateToProps)(SingleEmail);
